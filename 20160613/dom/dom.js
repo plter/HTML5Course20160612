@@ -15,6 +15,10 @@
         h1.innerHTML = "Page Title";
 
         div.appendChild(h1);
+
+        h1.onclick = function () {
+            console.log("h1 被点击了");
+        }
     }
 
     init();
