@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        @keyframes rotateDiv {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(90deg);
+            }
+        }
+
+        div {
+            background-color: red;
+            width: 200px;
+            height: 20px;
+            transform-origin: 10%;
+            animation-name: rotateDiv;
+            animation-duration: 10s;
+        }
+
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

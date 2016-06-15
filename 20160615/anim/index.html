@@ -6,12 +6,10 @@
 
 
     <style type="text/css">
-
         @keyframes animTo0 {
             from {
                 transform: perspective(1000px) rotateY(180deg);
             }
-
             to {
                 transform: perspective(1000px) rotateY(0deg);
             }
@@ -21,7 +19,6 @@
             from {
                 transform: perspective(1000px) rotateY(0deg);
             }
-
             to {
                 transform: perspective(1000px) rotateY(180deg);
             }
@@ -30,6 +27,7 @@
         img {
             animation: animTo0;
             animation-duration: 1s;
+            backface-visibility: hidden;
         }
 
         img:hover {
