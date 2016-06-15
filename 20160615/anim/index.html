@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style type="text/css">
+
+        @keyframes animTo0 {
+            from {
+                transform: perspective(1000px) rotateY(180deg);
+            }
+
+            to {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+        }
+
+        @keyframes animTo180 {
+            from {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            to {
+                transform: perspective(1000px) rotateY(180deg);
+            }
+        }
+
+        img {
+            animation: animTo0;
+            animation-duration: 1s;
+        }
+
+        img:hover {
+            animation: animTo180;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+    </style>
+</head>
+<body>
+<img src="img.png">
+</body>
+</html>
