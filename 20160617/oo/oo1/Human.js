@@ -19,6 +19,7 @@
         //     return self._name;
         // };
 
+        //ES5 新特性 set/get 方法
         Object.defineProperty(self, "name", {
             get: function () {
                 return self._name;
