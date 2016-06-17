@@ -14,5 +14,11 @@ window.ucai = window.ucai || {};
         console.log(this._name + " say hello");
     };
 
+    Object.defineProperty(Human.prototype, "name", {
+        get: function () {
+            return this._name;
+        }
+    });
+
     ucai.Human = Human;
 })();

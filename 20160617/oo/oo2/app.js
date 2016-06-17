@@ -26,12 +26,16 @@ window.ucai = window.ucai || {};
 
     function App() {
 
-        var h = new ucai.Human("张三");
-        h.sayHello();
+        // var h = new ucai.Human("张三");
+        // h.sayHello();
 
         // var h = NewObject(ucai.Human, "张三");
         // h.sayHello();
+
+        var s = new ucai.Student("吴多");
+        s.sayHello();
+        s.learn();
     }
 
-    new App();
+    App();
 })();
