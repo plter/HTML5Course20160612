@@ -12,14 +12,14 @@
         // h.hi("ucai");
         //
         //
-        // var s = Student("ZhangSan");
-        // s.sayHello();
-        // s.learn();
+        var s = ucai.Student("ZhangSan");
+        s.sayHello();
+        s.learn();
 
         // console.log(Math.random());
         
         
-        var h = Human("ZhangSan");
+        var h = ucai.Human("ZhangSan");
         console.log(h.name);
         
         h.name = "LiSi";

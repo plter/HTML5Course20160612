@@ -2,6 +2,12 @@
  * Created by plter on 6/15/16.
  */
 
+// window.ucai = window.ucai || {};
+
+if (!window.ucai) {
+    window.ucai = {};
+}
+
 (function () {
 
     function Human(name) {
@@ -67,5 +73,5 @@
      */
     Human.CLASS_NAME = "Human";
 
-    window.Human = Human;
+    window.ucai.Human = Human;
 }());
