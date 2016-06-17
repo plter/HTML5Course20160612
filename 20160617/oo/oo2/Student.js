@@ -18,5 +18,14 @@ window.ucai = window.ucai || {};
         console.log(this.name + "学习");
     };
 
+    // var superSayHello = Student.prototype.sayHello;
+    Student.prototype.sayHello = function () {
+        //执行父类的函数
+        ucai.Human.prototype.sayHello.call(this);
+        // superSayHello.call(this);
+
+        console.log(this.name + "说你好");
+    };
+
     window.ucai.Student = Student;
 })();
