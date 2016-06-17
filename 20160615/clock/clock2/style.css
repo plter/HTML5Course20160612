@@ -1,0 +1,36 @@
+
+#clock {
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+    border-radius: 100px;
+}
+
+#clock .pointer {
+    position: absolute;
+    transform-origin: 0 100%;
+}
+
+#hour-pointer {
+    width: 10px;
+    height: 50px;
+    background-color: black;
+    top: 50px;
+    left: 100px;
+}
+
+#min-pointer {
+    width: 4px;
+    height: 60px;
+    background-color: aqua;
+    top: 40px;
+    left: 103px;
+}
+
+#sec-pointer {
+    width: 1px;
+    height: 80px;
+    background-color: red;
+    top: 20px;
+    left: 104px;
+}
