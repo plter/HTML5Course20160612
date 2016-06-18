@@ -1,0 +1,43 @@
+@keyframes rotateToBack {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(180deg);
+    }
+}
+
+@keyframes rotateToFront {
+    from {
+        transform: perspective(1000px) rotateY(180deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+
+    animation-name: rotateToFront;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    float: left;
+}
+
+.card:hover {
+    animation-name: rotateToBack;
+    animation-duration: 1s;
+}
+
+.face {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.back {
+    transform: rotateY(180deg);
+}

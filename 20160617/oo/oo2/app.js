@@ -26,8 +26,8 @@ window.ucai = window.ucai || {};
 
     function App() {
 
-        // var h = new ucai.Human("张三");
-        // h.sayHello();
+        var h = new ucai.Human("张三");
+        h.sayHello();
 
         // var h = NewObject(ucai.Human, "张三");
         // h.sayHello();
@@ -35,6 +35,8 @@ window.ucai = window.ucai || {};
         var s = new ucai.Student("吴多");
         s.sayHello();
         s.learn();
+
+        console.log(s instanceof App);
     }
 
     App();
