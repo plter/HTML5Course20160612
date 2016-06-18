@@ -15,6 +15,7 @@ window.ucai = window.ucai || {};
             },
 
             sayHello: function () {
+                //执行父类的sayHello方法
                 this.__proto__.sayHello.call(this);
 
                 console.log(this.name + "说你好");
