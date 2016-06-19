@@ -1,0 +1,33 @@
+
+.face {
+    border: solid;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100px;
+}
+
+.eye {
+    width: 60px;
+    height: 60px;
+    border: solid;
+    border-radius: 50%;
+    position: absolute;
+    top: 46px;
+}
+
+.left-eye {
+    left: 20px;
+}
+
+.right-eye {
+    left: 110px;
+}
+
+.eyeball {
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: black;
+    position: absolute;
+}
