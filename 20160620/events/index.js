@@ -22,19 +22,19 @@
         }.bind(this);
     };
 
-    Main.prototype.mouseEventListener = function (event) {
+    function mouseEventListener(event) {
 
         console.log("link clicked", event.target);
 
-        // event.target.removeEventListener("click", this.mouseEventListener);
-    };
+        event.target.removeEventListener("click", mouseEventListener);
+    }
 
     Main.prototype.addListeners2 = function () {
-        this._linkClickMe.addEventListener("click", this.mouseEventListener);
+        this._linkClickMe.addEventListener("click", mouseEventListener);
 
-        this._linkClickMe.addEventListener("click", function (event) {
-            console.log("link clicked 2");
-        });
+        // this._linkClickMe.addEventListener("click", function (event) {
+        //     console.log("link clicked 2");
+        // });
     };
 
     new Main();
