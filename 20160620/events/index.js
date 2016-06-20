@@ -25,7 +25,7 @@
     Main.prototype.addListeners2 = function () {
         this._linkClickMe.addEventListener("click", function (event) {
             console.log("link clicked 1");
-            
+
             event.target.removeEventListener("click", arguments.callee);
         });
 
