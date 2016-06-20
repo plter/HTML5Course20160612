@@ -22,15 +22,12 @@
         }.bind(this);
     };
 
-    function mouseEventListener(event) {
-
-        console.log("link clicked", event.target);
-
-        event.target.removeEventListener("click", mouseEventListener);
-    }
-
     Main.prototype.addListeners2 = function () {
-        this._linkClickMe.addEventListener("click", mouseEventListener);
+        this._linkClickMe.addEventListener("click", function (event) {
+            console.log("link clicked 1");
+            
+            event.target.removeEventListener("click", arguments.callee);
+        });
 
         // this._linkClickMe.addEventListener("click", function (event) {
         //     console.log("link clicked 2");
