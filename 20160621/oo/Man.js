@@ -2,6 +2,8 @@
  * Created by plter on 6/21/16.
  */
 
+window.ucai = window.ucai || {};
+
 (function () {
 
     function Man(name) {

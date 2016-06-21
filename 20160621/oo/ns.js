@@ -5,5 +5,5 @@
 // window.cn = {};
 // window.cn.ucai = {};
 
-window.ucai = {};
+// window.ucai = {};
 // this.ucai = {};

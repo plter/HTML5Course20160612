@@ -3,6 +3,12 @@
  */
 
 
+window.ucai = window.ucai || {};
+
+// if (!window.ucai) {
+//     window.ucai = {};
+// }
+
 (function () {
 
 
