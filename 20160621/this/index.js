@@ -12,13 +12,13 @@
     //     this._name = name;
     // }
     //
-    // var h = new Human("吴多");
-    //
-    // var hello = function () {
-    //     console.log("Hello " + this._name);
-    // }.bind(h);
-    //
-    // hello();
+    var h = new Human("吴多");
+
+    var hello = function () {
+        console.log("Hello " + this._name);
+    }.bind(h);
+
+    hello();
 
     // setTimeout(function () {
     //     console.log(this);
@@ -47,9 +47,9 @@
     // h.hello();
     
     
-    var div = document.getElementById("div");
-    div.onclick = function (event) {
-        console.log(this);
-    }
+    // var div = document.getElementById("div");
+    // div.onclick = function (event) {
+    //     console.log(this);
+    // }
 
 })();
