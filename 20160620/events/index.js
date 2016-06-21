@@ -32,6 +32,17 @@
         // this._linkClickMe.addEventListener("click", function (event) {
         //     console.log("link clicked 2");
         // });
+
+
+        // (function (self) {
+        //
+        //     self._linkClickMe.addEventListener("click", function (event) {
+        //         console.log(event);
+        //
+        //         self._linkClickMe.removeEventListener("click", arguments.callee);
+        //     });
+        //
+        // })(this);
     };
 
     new Main();
