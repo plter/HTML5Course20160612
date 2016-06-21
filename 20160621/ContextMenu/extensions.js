@@ -17,6 +17,7 @@
 
                     this.oncontextmenu = function (event) {
                         event.preventDefault();
+                        event.stopPropagation();
 
                         if (this.customContextMenu) {
                             this.customContextMenu.showMenu(event.clientX, event.clientY);

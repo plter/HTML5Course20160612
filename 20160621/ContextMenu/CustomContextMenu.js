@@ -26,9 +26,7 @@ window.ucai = window.ucai || {};
     };
 
     CustomContextMenu.prototype.showMenu = function (x, y) {
-        if (CustomContextMenu._currentMenu) {
-            CustomContextMenu._currentMenu.hide();
-        }
+        CustomContextMenu.hideCurrentMenu();
 
         CustomContextMenu._currentMenu = this;
         this._node.style.display = "block";
@@ -44,6 +42,16 @@ window.ucai = window.ucai || {};
 
     CustomContextMenu.prototype.hide = function () {
         this._node.style.display = "none";
+    };
+
+    CustomContextMenu.hideCurrentMenu = function () {
+        if (CustomContextMenu._currentMenu){
+            CustomContextMenu._currentMenu.hide();
+        }
+    };
+
+    document.oncontextmenu = function (event) {
+        CustomContextMenu.hideCurrentMenu();
     };
 
     ucai.CustomContextMenu = CustomContextMenu;
