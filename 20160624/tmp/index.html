@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>自定义上下文菜单2</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id='div1'>
+    <div style="display: block" id='p' draggable="true"> 拖动我 </div>
+</div>
+<div id='div2'></div>
+
+<script type="text/javascript">
+    (function () {
+        var p = document.getElementById('p');
+        var div2 = document.getElementById('div2');
+        var currentDragged;
+
+        function init() {
+
+            p.ondragstart = function (event) {
+                currentDragged = p;
+                event.preventDefault();
+            };
+
+            div2.ondragover = function (event) {
+                event.preventDefault();
+            };
+
+            div2.ondrop = function (event) {
+                div2.appendChild(currentDragged)
+            };
+
+        }
+
+        init();
+    })();
+</script>
+</body>
+</html>
