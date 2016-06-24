@@ -19,6 +19,9 @@
                     var id = e.dataTransfer.getData("domId");
                     this.appendChild(document.getElementById(id));
                 }
+            } else {
+                this.ondragover = null;
+                this.ondrop = null;
             }
         }
     });
