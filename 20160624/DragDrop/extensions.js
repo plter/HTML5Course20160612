@@ -17,7 +17,9 @@
                 };
                 this.ondrop = function (e) {
                     var id = e.dataTransfer.getData("domId");
-                    this.appendChild(document.getElementById(id));
+                    var node = document.getElementById(id);
+                    node.parentNode.removeChild(node);
+                    this.appendChild(node);
                 }
             } else {
                 this.ondragover = null;

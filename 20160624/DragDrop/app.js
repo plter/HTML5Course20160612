@@ -34,9 +34,15 @@
             event.dataTransfer.setData("domId", this.id);
         };
 
-        document.querySelectorAll(".container").forEach(function (item) {
-            item.acceptDrop = true;
-        });
+        // console.log(document.querySelectorAll(".container"));
+        // document.querySelectorAll(".container").forEach(function (item) {
+        //     item.acceptDrop = true;
+        // });
+
+        var result = document.querySelectorAll(".container");
+        for (var i = 0; i < result.length; i++) {
+            result[i].acceptDrop = true;
+        }
     }
 
     init();
