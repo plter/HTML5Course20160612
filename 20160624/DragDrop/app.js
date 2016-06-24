@@ -39,7 +39,8 @@
         //     item.acceptDrop = true;
         // });
 
-        var result = document.querySelectorAll(".container");
+        // var result = document.querySelectorAll(".container");
+        var result = document.getElementsByClassName("container");
         for (var i = 0; i < result.length; i++) {
             result[i].acceptDrop = true;
         }
