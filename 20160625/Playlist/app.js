@@ -22,7 +22,7 @@
      */
     Main.prototype.createPlaylistByFilesIn = function (files, ulNode) {
 
-        (function (self) {
+        (function (self, ulNode) {
             function songSelectedHandler(file) {
 
                 var reader = new FileReader();
@@ -34,13 +34,16 @@
 
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
-                if (file.type == "audio/mp3") {
-                    var song = new ucai.Song(file);
-                    song.onselect = songSelectedHandler;
-                    ulNode.appendChild(song.node);
+                switch (file.type) {
+                    case "audio/mp3":
+                    case "audio/mpeg":
+                        var song = new ucai.Song(file);
+                        song.onselect = songSelectedHandler;
+                        ulNode.appendChild(song.node);
+                        break;
                 }
             }
-        })(this);
+        })(this, ulNode);
     };
 
     Main.prototype.addListeners = function () {
