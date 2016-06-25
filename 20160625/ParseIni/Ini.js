@@ -23,6 +23,8 @@ window.ucai = window.ucai || {};
 
                 var startIndex = result.index + result[0].length;
                 var endIndex = str.indexOf("[", startIndex);
+                
+                //如果索引不到,则说明此节点是最后一个,所将结束位置移到字符串结尾
                 if (endIndex == -1) {
                     endIndex = str.length;
                 }
