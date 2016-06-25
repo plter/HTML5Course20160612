@@ -34,7 +34,7 @@
 
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
-                if (file.type = "audio/mp3") {
+                if (file.type == "audio/mp3") {
                     var song = new ucai.Song(file);
                     song.onselect = songSelectedHandler;
                     ulNode.appendChild(song.node);
