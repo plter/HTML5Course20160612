@@ -11,54 +11,72 @@
 
     Main.prototype.getElements = function () {
         this._playlistContainer = document.getElementById("playlist-container");
-        this._playlist = document.getElementById("playlist");
         this._player = document.getElementById("player");
+        this._songs = [];
     };
 
-    /**
-     * 根据拖入的文件创建一个ul列表
-     * @param files
-     * @return {HTMLUListElement}
-     */
-    Main.prototype.createPlaylistByFilesIn = function (files, ulNode) {
-
-        (function (self, ulNode) {
-            function songSelectedHandler(file) {
-
-                var reader = new FileReader();
-                reader.onload = function () {
-                    self._player.src = reader.result;
-                };
-                reader.readAsDataURL(file);
+    Main.prototype.hasSong = function (song) {
+        for (var i = 0; i < this._songs.length; i++) {
+            if (this._songs[i].isEqual(song)) {
+                return true;
             }
+        }
+        return false;
+    };
 
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                switch (file.type) {
-                    case "audio/mp3":
-                    case "audio/mpeg":
-                        var song = new ucai.Song(file);
-                        song.onselect = songSelectedHandler;
-                        ulNode.appendChild(song.node);
-                        break;
-                }
+    Main.prototype.addSong = function (song) {
+        this._songs.push(song);
+    };
+
+    Main.prototype.selectFileHandler = function (file) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            self._player.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    };
+
+    Main.prototype.handleDropFiles = function (files) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            switch (file.type) {
+                case "audio/mp3":
+                case "audio/mpeg":
+                    var song = new ucai.Song(file);
+                    song.onselect = this.selectFileHandler;
+                    if (!this.hasSong(song)) {
+                        this.addSong(song);
+                    }
+                    this.recreatePlayList();
+                    break;
             }
-        })(this, ulNode);
+        }
+    };
+
+    Main.prototype.recreatePlayList = function () {
+        if (this._currentPlaylistUl) {
+            this._currentPlaylistUl.parentNode.removeChild(this._currentPlaylistUl);
+        }
+
+        this._currentPlaylistUl = document.createElement("ul");
+        this._currentPlaylistUl.id = "playlist";
+        for (var i = 0; i < this._songs.length; i++) {
+            this._currentPlaylistUl.appendChild(this._songs[i].node);
+        }
+        this._playlistContainer.appendChild(this._currentPlaylistUl);
+        $("#playlist").menu();
     };
 
     Main.prototype.addListeners = function () {
-
         (function (self) {
             document.ondragover = function (event) {
                 event.preventDefault();
             };
 
             document.ondrop = function (event) {
-
                 event.preventDefault();
 
-                var files = event.dataTransfer.files;
-                self.createPlaylistByFilesIn(files, self._playlist);
+                self.handleDropFiles(event.dataTransfer.files)
             }
         })(this);
     };

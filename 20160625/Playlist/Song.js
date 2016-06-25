@@ -43,6 +43,10 @@ window.ucai = window.ucai || {};
         }
     });
 
+    Song.prototype.isEqual = function (song) {
+        return this._file.name == song._file.name;
+    };
+
     ucai.Song = Song;
 
 })();
