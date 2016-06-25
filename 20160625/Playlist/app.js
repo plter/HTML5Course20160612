@@ -31,8 +31,8 @@
     Main.prototype.selectFileHandler = function (file) {
         var reader = new FileReader();
         reader.onload = function () {
-            self._player.src = reader.result;
-        };
+            this._player.src = reader.result;
+        }.bind(this);
         reader.readAsDataURL(file);
     };
 
@@ -43,7 +43,7 @@
                 case "audio/mp3":
                 case "audio/mpeg":
                     var song = new ucai.Song(file);
-                    song.onselect = this.selectFileHandler;
+                    song.onselect = this.selectFileHandler.bind(this);
                     if (!this.hasSong(song)) {
                         this.addSong(song);
                     }
