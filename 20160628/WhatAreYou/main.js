@@ -8,18 +8,6 @@
         this._canvas = document.getElementById("canvas");
         this._context2d = this._canvas.getContext("2d");
 
-        // this._rect = new ucai.Rect(100, 100);
-        // this._rect.x = 100;
-        // this._rect.y = 100;
-        // this._rect.draw(this._context2d);
-        //
-        // this._text = new ucai.Text("Hello World", 20);
-        // this._text.y = 200;
-        // this._text.draw(this._context2d);
-        //
-        // this._btn = new ucai.Button("Click me");
-        // this._btn.draw(this._context2d);
-
         this.buildUI();
         this.addListeners();
 
