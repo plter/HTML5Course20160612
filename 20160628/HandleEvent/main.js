@@ -21,7 +21,7 @@
 
     Main.prototype.addListeners = function () {
         this._canvas.onmousedown = function (e) {
-            if (this.hitTest(this._rect, e.layerX, e.layerY)) {
+            if (this._rect.hitTestPoint(e.layerX, e.layerY)) {
 
                 this._rectOffsetX = this._rect.x - e.layerX;
                 this._rectOffsetY = this._rect.y - e.layerY;
@@ -46,14 +46,6 @@
 
         requestAnimationFrame(this.render.bind(this));
     };
-
-    Main.prototype.hitTest = function (rect, mouseX, mouseY) {
-        return mouseX > rect.x &&
-            mouseX < rect.x + rect.width &&
-            mouseY > rect.y &&
-            mouseY < rect.y + rect.height;
-    };
-
 
     new Main();
 })();

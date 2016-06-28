@@ -98,6 +98,13 @@ window.ucai = window.ucai || {};
         context2d.restore();
     };
 
+    Rect.prototype.hitTestPoint = function (pointX, pointY) {
+        return pointX > this.x &&
+            pointX < this.x + this.width &&
+            pointY > this.y &&
+            pointY < this.y + this.height;
+    };
+
 
     ucai.Rect = Rect;
 })();
