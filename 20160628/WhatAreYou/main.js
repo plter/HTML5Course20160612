@@ -43,7 +43,10 @@
             if (this._btnImHuman.hitTestPoint(event.layerX, event.layerY)) {
                 alert("你确实是个人");
             } else if (this._btnImPig.hitTestPoint(event.layerX, event.layerY)) {
-                alert("终于承认你是个猪了吧");
+                for (var i = 0; i < 3; i++) {
+                    alert("终于承认你是个猪了吧");
+                }
+                alert("重要的事情说三遍");
             }
         }.bind(this);
 
