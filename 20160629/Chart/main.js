@@ -16,7 +16,30 @@
 
         this._context2d = document.getElementById("canvas").getContext("2d");
         this.drawData();
+
+        this.addListeners();
     }
+
+
+    Main.prototype.addListeners = function () {
+
+        var c = this._context2d.canvas;
+
+        c.onclick = function () {
+            var requestFullScreen = c.requestFullScreen;
+            if (!requestFullScreen) {
+                requestFullScreen = c.webkitRequestFullScreen;
+            }
+            if (!requestFullScreen) {
+                requestFullScreen = c.mozRequestFullScreen;
+            }
+            if (requestFullScreen) {
+                requestFullScreen.call(c);
+            } else {
+                alert("你的浏览器不支持全屏");
+            }
+        }
+    };
 
     Main.prototype.drawData = function () {
 

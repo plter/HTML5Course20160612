@@ -15,10 +15,10 @@
         this._context2d = this._canvas.getContext("2d");
 
         // this.drawRect();
-        // this.drawCircle();
+        this.drawCircle();
         // this.drawLines();
         // this.drawText();
-        this.drawImage();
+        // this.drawImage();
     }
 
     Main.prototype.drawRect = function () {
