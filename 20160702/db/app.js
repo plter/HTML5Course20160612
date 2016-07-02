@@ -8,8 +8,8 @@
 
     function Main() {
         this.connectDB(function () {
-            // this.writeData();
-            this.readData();
+            this.writeData();
+            // this.readData();
         }.bind(this));
     }
 
@@ -40,7 +40,7 @@
             console.log("成功写入应用名字");
 
             new Promise(function (receive, reject) {
-                req = os.add("1.0", "version");
+                req = os.put("1.0", "version");
                 req.onsuccess = receive;
                 req.onerror = reject;
             }).then(function (event) {
