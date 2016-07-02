@@ -60,7 +60,12 @@
         var os = trans.objectStore("users");
 
         var req = os.getAll();
+        // var req = os.get(1);
+        // var req = os.index("name").get("吴多");
+
         req.onsuccess = function (event) {
+            // console.log(event.target.result);
+
             this._usersContainer.innerHTML = this.createTableHTMLByData(event.target.result);
         }.bind(this);
         req.onerror = function () {
