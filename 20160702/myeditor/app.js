@@ -9,9 +9,6 @@
 
     function Main() {
 
-        // document.getElementById(Config.EDITOR_HTML_ID).innerHTML = dataContent;
-
-
         this._ue = UE.getEditor(Config.EDITOR_HTML_ID, {
             //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
             toolbars: [['FullScreen', 'Source', 'Undo', 'Redo', 'Bold', 'test']],
