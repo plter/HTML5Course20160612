@@ -31,10 +31,16 @@
     }
 
     Main.prototype.getCachedDataContent = function () {
+        var dataContent = "";
         var dataId = this.getCacheDataId();
         var data = localStorage.getItem("ueditor_preference");
-        var dataObj = JSON.parse(data);
-        var dataContent = dataObj[dataId];
+        if (data) {
+            var dataObj = JSON.parse(data);
+            var content = dataObj[dataId];
+            if (content) {
+                dataContent = content;
+            }
+        }
         return dataContent;
     };
 
