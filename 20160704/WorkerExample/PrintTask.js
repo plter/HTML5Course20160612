@@ -7,7 +7,7 @@
 
 
     var a = 0;
-    var max = 500000000;
+    var max = 1000000000;
 
     for (var i = 0; i < max; i++) {
         a++;
