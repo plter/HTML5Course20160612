@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="TableRow.js"></script>
+</head>
+<body>
+<div id="datacontainer"></div>
+
+<div>
+    <form id="form">
+        <label>
+            名字:
+            <input required="required" name="name" type="text">
+        </label><br>
+        <label>
+            日期:
+            <input required="required" name="date" type="date">
+        </label><br>
+        <label>
+            数额:
+            <input name="amount" required="required" type="number">
+        </label><br>
+        <label>
+            是否还清:
+            <input name="paied" required="required" type="number">
+        </label><br>
+        <input type="submit" value="保存">
+    </form>
+</div>
+
+<div id="msgcontainer"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
