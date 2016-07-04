@@ -13,7 +13,7 @@ window.ucai = window.ucai || {};
         this._node.appendChild(this._createTd(dbObject.name));
         this._node.appendChild(this._createTd(dbObject.date));
         this._node.appendChild(this._createTd(dbObject.amount));
-        this._node.appendChild(this._createTd(dbObject.paied));
+        this._node.appendChild(this._createTd(dbObject.paied != 0 ? "是" : "否"));
 
         var td = this._createTd();
         td.appendChild(this._createDeleteButton());

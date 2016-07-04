@@ -6,7 +6,6 @@
 
     window.Config = {DB_NAME: "Notes", DB_VERSION: 1};
 
-
     function Main() {
         this.getElements();
         this.addListeners();
@@ -16,13 +15,15 @@
         }.bind(this));
     }
 
-    Main.prototype.getElements = function () {
+    var p = Main.prototype;
+
+    p.getElements = function () {
         this._dataContainer = document.getElementById("datacontainer");
         this._msgContainer = document.getElementById("msgcontainer");
         this._form = document.getElementById("form");
     };
 
-    Main.prototype.addListeners = function () {
+    p.addListeners = function () {
         this._form.onsubmit = function (event) {
             event.preventDefault();
 
@@ -35,7 +36,7 @@
         }.bind(this)
     };
 
-    Main.prototype.clearFormFields = function () {
+    p.clearFormFields = function () {
         this._form["name"].value = "";
         this._form["amount"].value = "";
         this._form["paied"].value = "";
@@ -66,8 +67,6 @@
         }.bind(this);
         req.onsuccess = function () {
             var data = event.target.result;
-            console.log(data);
-
             this.showData(data);
         }.bind(this)
     };
