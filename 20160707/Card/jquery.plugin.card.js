@@ -3,7 +3,7 @@
  */
 
 (function () {
-
+    
     $.fn.card = function (args) {
 
         var jqSelf = this;

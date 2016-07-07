@@ -1,0 +1,15 @@
+{
+  "data": {
+    "student": [
+      {
+        "name": "ucai",
+        "age": 4
+      },
+      {
+        "name": "吴多",
+        "age": 4
+      }
+    ],
+    "text": "Hello World"
+  }
+}

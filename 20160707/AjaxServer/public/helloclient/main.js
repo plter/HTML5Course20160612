@@ -17,7 +17,7 @@
             event.preventDefault();
 
             resultField.html("Loading...");
-            $.get(SERVER_URL, {name: nameInput.val()}, function (data) {
+            $.post(SERVER_URL, {name: nameInput.val()}, function (data) {
                 resultField.html(data);
             });
         });
