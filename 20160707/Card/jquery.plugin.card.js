@@ -6,7 +6,7 @@
 
     $.fn.card = function (args) {
 
-        var jqSelf = $(this);
+        var jqSelf = this;
 
         var width = "200px";
         var height = "200px";
@@ -39,7 +39,7 @@
             faceB.css({width: "100%", height: "100%", margin: "0 auto"});
 
             faceB.hide();
-            jqSelf[0].faceAVisible = true;
+            jqSelf.prop("faceAVisible", true);
         }
 
         function addListeners() {
@@ -58,53 +58,53 @@
     };
 
     $.fn.showFaceB = function () {
-        var elementSelf = this[0];
+        var jqSelf = this;
 
-        if (!elementSelf.animating && elementSelf.faceAVisible) {
-            elementSelf.animating = true;
+        if (!jqSelf.prop("animating") && jqSelf.prop("faceAVisible")) {
+            jqSelf.prop("animating", true);
 
             var faceA = this.find(".face-a");
             var faceB = this.find(".face-b");
 
-            faceA.animate({width: "0"}, 1000, function () {
+            faceA.animate({width: "0"}, 300, function () {
                 faceA.hide();
-                elementSelf.faceAVisible = false;
+                jqSelf.prop("faceAVisible", false);
 
                 faceB.show();
                 faceB.css("width", "0");
-                faceB.animate({width: "100%"}, 1000, function () {
-                    elementSelf.animating = false;
+                faceB.animate({width: "100%"}, 300, function () {
+                    jqSelf.prop("animating", false);
                 });
             });
         }
     };
 
     $.fn.showFaceA = function () {
-        var elementSelf = this[0];
+        var jqSelf = this;
 
-        if (!elementSelf.animating && !elementSelf.faceAVisible) {
-            elementSelf.animating = true;
+        if (!jqSelf.prop("animating") && !jqSelf.prop("faceAVisible")) {
+            jqSelf.prop("animating", true);
 
             var faceA = this.find(".face-a");
             var faceB = this.find(".face-b");
 
-            faceB.animate({width: "0"}, 1000, function () {
+            faceB.animate({width: "0"}, 300, function () {
                 faceB.hide();
                 faceA.show();
-                elementSelf.faceAVisible = true;
+                jqSelf.prop("faceAVisible", true);
 
                 faceA.css("width", "0");
-                faceA.animate({width: "100%"}, 1000, function () {
-                    elementSelf.animating = false;
+                faceA.animate({width: "100%"}, 300, function () {
+                    jqSelf.prop("animating", false);
                 })
             });
         }
     };
 
     $.fn.toggleFace = function () {
-        var elementSelf = this[0];
-        if (!elementSelf.animating) {
-            if (elementSelf.faceAVisible) {
+        var jqSelf = this;
+        if (!jqSelf.prop("animating")) {
+            if (jqSelf.prop("faceAVisible")) {
                 this.showFaceB();
             } else {
                 this.showFaceA();
