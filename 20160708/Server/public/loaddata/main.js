@@ -5,14 +5,16 @@
 
 (function () {
 
-    window.ondataLoaded = function (result) {
+    var Config = {CALLBACK_NAME: "ondataLoaded"};
+
+    window[Config.CALLBACK_NAME] = function (result) {
         console.log(result);
     };
 
 
     function init() {
         var script = document.createElement("script");
-        script.src = "http://localhost:3000/json?callback=ondataLoaded";
+        script.src = "http://localhost:3000/json?callback=" + Config.CALLBACK_NAME;
         document.body.appendChild(script);
     }
 
