@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/json', require("./routes/json"));
 app.use('/helloserver', require("./routes/helloserver"));
 
 // catch 404 and forward to error handler
