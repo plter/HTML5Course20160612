@@ -1,0 +1,21 @@
+body {
+    transition: background-color 2s;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 550px) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    body {
+        background-color: green;
+    }
+}
