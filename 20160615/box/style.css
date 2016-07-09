@@ -15,6 +15,7 @@
     animation-name: rotateBox;
     animation-duration: 10s;
     animation-fill-mode: both;
+    animation-iteration-count: infinite;
 }
 
 .face {
