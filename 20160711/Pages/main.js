@@ -45,8 +45,7 @@
                 translateY = minTranslateY;
             }
 
-            var pageIndex = Math.round(Math.abs(translateY / windowHeight));
-            translateY = -pageIndex * windowHeight;
+            translateY = windowHeight * Math.round(translateY / windowHeight);
 
             jqContainer.css("transition-duration", "0.3s");
             syncTranslateY();
