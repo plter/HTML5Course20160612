@@ -1,0 +1,10 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#container {
+    transition-property: transform;
+    transition-duration: 1s;
+}
