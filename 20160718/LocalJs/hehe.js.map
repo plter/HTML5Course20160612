@@ -1,0 +1,1 @@
+{"version":3,"sources":["hehe.es6"],"names":[],"mappings":"AAAA;;;;AAIA,MAAM,KAAN,CAAW;;AAEP,eAAU;AACN,gBAAQ,GAAR,CAAY,eAAZ;AACH;AAJM","file":"hehe.js","sourcesContent":["/**\n * Created by plter on 7/18/16.\n */\n\nclass Hello{\n\n    sayHello(){\n        console.log(\"Hello World 1\");\n    }\n}"]}
