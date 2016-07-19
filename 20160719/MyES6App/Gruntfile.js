@@ -19,7 +19,12 @@ module.exports = function (grunt) {
     grunt.initConfig({
         shell: {
             compile: {
-                command: "cd src&&java -jar ../tools/closure-compiler-v20160713.jar --js_output_file ../build/main.min.js --js cn/ucai/Hello.js cn/ucai/Hi.js App.js"
+                command: "java -jar ../tools/closure-compiler-v20160713.jar --js_output_file ../build/main.min.js --js cn/ucai/Hello.js cn/ucai/Hi.js App.js",
+                options: {
+                    execOptions: {
+                        cwd: "src"
+                    }
+                }
             }
         }
     });
