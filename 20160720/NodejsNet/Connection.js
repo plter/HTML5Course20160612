@@ -6,7 +6,6 @@
 
 class Connection {
 
-
     constructor(socket) {
 
         Connection.__id++;
@@ -23,8 +22,9 @@ class Connection {
     addListeners() {
         this._socket.on("data", (data)=> {
             // this._socket.write(String(data));
-
-            Connection.broadcast(String(data));
+            var msg = String(data);
+            // console.log(msg);
+            Connection.broadcast(msg);
         });
 
         this._socket.on("error", (err)=> {
