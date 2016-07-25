@@ -7,3 +7,4 @@ node_modules
 dist
 .sass-cache
 build
+bower_components
