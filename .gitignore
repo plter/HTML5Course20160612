@@ -8,3 +8,6 @@ dist
 .sass-cache
 build
 bower_components
+.metadata
+.settings
+RemoteSystemsTempFiles
