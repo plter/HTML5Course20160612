@@ -16,7 +16,12 @@ class Container extends Display {
      * @param {Display} child
      */
     addChild(child) {
-        this._children.push(child);
+        if (this._children.indexOf(child) == -1) {
+            this._children.push(child);
+            child.internal_setParent(this);
+        } else {
+            throw new Error("The child is already in this container");
+        }
     }
 
     /**
@@ -27,13 +32,19 @@ class Container extends Display {
         var index = this._children.indexOf(child);
         if (index != -1) {
             this._children.splice(index, 1);
+            child.internal_setParent(null);
         }
     }
-
 
     onDraw(context2d) {
         for (let i = 0; i < this._children.length; i++) {
             this._children[i].internal_draw(context2d);
+        }
+    }
+
+    internal_onClick(nativeEvent) {
+        for (let i = 0; i < this._children.length; i++) {
+            this._children[i].internal_onClick(nativeEvent);
         }
     }
 }

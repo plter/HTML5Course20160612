@@ -24,6 +24,14 @@ class Rectangle extends Display {
         context2d.fillStyle = this._color;
         context2d.fillRect(0, 0, this._width, this._height);
     }
+
+
+    hitTestPoint(globalX, globalY) {
+        return globalX > this.getGlobalX() &&
+            globalY > this.getGlobalY() &&
+            globalX < this.getGlobalX() + this._width &&
+            globalY < this.getGlobalY() + this._height;
+    }
 }
 
 export default Rectangle;

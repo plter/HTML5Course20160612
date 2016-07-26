@@ -22,7 +22,18 @@ class Game2dApp extends Container {
         this._canvas.height = this._stageHeight;
         this._context2d = this._canvas.getContext("2d");
 
+        this.addNativeListeners();
+
         this.render(0);
+    }
+
+    /**
+     * @private
+     */
+    addNativeListeners() {
+        this._canvas.onclick = function (event) {
+            this.internal_onClick(event);
+        }.bind(this);
     }
 
     getStageWidth() {
