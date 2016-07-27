@@ -7,6 +7,8 @@ class G2DEvent {
     constructor(type, data) {
         this._type = type;
         this._data = data;
+
+        this._target = null;
     }
 
     getType() {
@@ -15,6 +17,14 @@ class G2DEvent {
 
     getData() {
         return this._data;
+    }
+
+    internal_setTarget(value) {
+        this._target = value;
+    }
+
+    getTarget() {
+        return this._target;
     }
 }
 

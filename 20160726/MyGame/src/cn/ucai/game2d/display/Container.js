@@ -36,6 +36,26 @@ class Container extends Display {
         }
     }
 
+    getChildren() {
+        return this._children;
+    }
+
+    getChildrenCount() {
+        return this._children.length;
+    }
+
+    getChildAt(index) {
+        return this._children[index];
+    }
+
+    removeAllChildren() {
+        var c;
+        while (this._children.length) {
+            c = this._children.pop();
+            c.internal_setParent(null);
+        }
+    }
+
     onDraw(context2d) {
         for (let i = 0; i < this._children.length; i++) {
             this._children[i].internal_draw(context2d);

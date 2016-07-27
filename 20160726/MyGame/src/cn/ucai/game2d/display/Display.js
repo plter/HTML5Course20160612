@@ -19,6 +19,7 @@ class Display extends G2DEventDispatcher {
 
         this._enabled = true;
         this._parent = null;
+        this._visible = true;
     }
 
     /**
@@ -34,13 +35,15 @@ class Display extends G2DEventDispatcher {
      * @param {CanvasRenderingContext2D} context2d
      */
     internal_draw(context2d) {
-        context2d.save();
-        context2d.translate(this.x, this.y);
-        context2d.scale(this.scaleX, this.scaleY);
-        context2d.rotate(this.rotation);
+        if (this._visible) {
+            context2d.save();
+            context2d.translate(this.x, this.y);
+            context2d.scale(this.scaleX, this.scaleY);
+            context2d.rotate(this.rotation);
 
-        this.onDraw(context2d);
-        context2d.restore();
+            this.onDraw(context2d);
+            context2d.restore();
+        }
     }
 
     /**
@@ -74,8 +77,18 @@ class Display extends G2DEventDispatcher {
      * @param nativeEvent
      */
     internal_onClick(nativeEvent) {
-        if (this.isEnabled() && this.hitTestPoint(nativeEvent.layerX, nativeEvent.layerY)) {
-            this.dispatchEvent(new G2DMouseEvent(G2DMouseEvent.CLICK));
+        if (this.isEnabled() && this.isVisible() && this.hitTestPoint(nativeEvent.layerX, nativeEvent.layerY)) {
+            let e = new G2DMouseEvent(G2DMouseEvent.CLICK);
+            this.internal_dispatchEvent(e);
+        }
+    }
+
+    internal_dispatchEvent(e) {
+        e.internal_setTarget(this);
+        this.dispatchEvent(e);
+
+        if (this.getParent()) {
+            this.getParent().internal_dispatchEvent(e);
         }
     }
 
@@ -100,6 +113,14 @@ class Display extends G2DEventDispatcher {
 
     getParent() {
         return this._parent;
+    }
+
+    setVisible(value) {
+        this._visible = value;
+    }
+
+    isVisible() {
+        return this._visible;
     }
 }
 
