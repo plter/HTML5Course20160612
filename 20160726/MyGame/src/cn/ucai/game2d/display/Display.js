@@ -79,6 +79,7 @@ class Display extends G2DEventDispatcher {
     internal_onClick(nativeEvent) {
         if (this.isEnabled() && this.isVisible() && this.hitTestPoint(nativeEvent.layerX, nativeEvent.layerY)) {
             let e = new G2DMouseEvent(G2DMouseEvent.CLICK);
+            e.internal_setCurrentTarget(this);
             this.internal_dispatchEvent(e);
         }
     }

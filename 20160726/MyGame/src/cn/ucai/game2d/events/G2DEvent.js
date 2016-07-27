@@ -9,6 +9,7 @@ class G2DEvent {
         this._data = data;
 
         this._target = null;
+        this._currentTarget = null;
     }
 
     getType() {
@@ -25,6 +26,14 @@ class G2DEvent {
 
     getTarget() {
         return this._target;
+    }
+
+    internal_setCurrentTarget(value) {
+        this._currentTarget = value;
+    }
+
+    getCurrentTarget() {
+        return this._currentTarget;
     }
 }
 

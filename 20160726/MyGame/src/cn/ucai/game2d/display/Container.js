@@ -63,8 +63,10 @@ class Container extends Display {
     }
 
     internal_onClick(nativeEvent) {
-        for (let i = 0; i < this._children.length; i++) {
-            this._children[i].internal_onClick(nativeEvent);
+        if (this.isEnabled() && this.isVisible()) {
+            for (let i = 0; i < this._children.length; i++) {
+                this._children[i].internal_onClick(nativeEvent);
+            }
         }
     }
 }
