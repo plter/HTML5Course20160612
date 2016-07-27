@@ -76,5 +76,4 @@ class CardMemory extends Game2dApp {
 }
 
 new CardMemory();
-
 export default CardMemory;
