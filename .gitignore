@@ -11,3 +11,6 @@ bower_components
 .metadata
 .settings
 RemoteSystemsTempFiles
+.gradle
+*.iml
+frameworks

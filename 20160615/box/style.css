@@ -9,6 +9,9 @@
 }
 
 .box {
+    position: absolute;
+    left: 200px;
+    top: 100px;
     transform-style: preserve-3d;
     width: 100px;
     height: 100px;
