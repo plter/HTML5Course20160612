@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+
+    form(action="users/add",method="post")
+        span 名字:
+        input(type="text",name="name",required="required")
+        span 年龄:
+        input(type="number",name="age",required="required")
+        input(type="submit")
+
+    each item in rows
+        div 名字:#{item.name},年龄:#{item.age}
+
