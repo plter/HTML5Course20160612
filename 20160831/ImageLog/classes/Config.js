@@ -3,7 +3,8 @@
  */
 
 const Config = {
-    MONGODB_URL: "mongodb://localhost/imagelog"
+    MONGODB_URL: "mongodb://localhost/imagelog",
+    IMAGES_COLLECTION_NAME: "images"
 };
 
 module.exports = Config;
