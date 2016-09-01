@@ -2,8 +2,18 @@ extends layout
 
 block content
     h1= title
-    p Welcome to #{title}
+    p(class="message")
 
     each user in users
         div
-            div id:#{user.id},name:#{user.name},age:#{user.age}
+            form(class="user-info-form")
+                span 用户id:#{user.id},
+                input(type="hidden",name="id",required="required",value=user.id)
+                span 用户名:
+                input(type="text",name="name",required="required",value=user.name)
+                span ,年龄:
+                input(type="text",name="age",required="required",value=user.age)
+                input(type="submit",value="保存")
+
+
+    script(src="javascripts/index.js")
