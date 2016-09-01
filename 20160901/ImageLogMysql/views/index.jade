@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+
+    form(action="upload",method="post",enctype="multipart/form-data")
+        span 描述:
+        input(type="text",name="desc",required="required")
+        input(type="file",name="img",required="required")
+        input(type="submit")
+
+    each row in rows
+        div(class="image-container")
+            div(class="image-desc")= row.description
+            div(class="image")
+                img(src=row.path)
