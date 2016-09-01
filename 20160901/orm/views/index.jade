@@ -7,12 +7,12 @@ block content
     each user in users
         div
             form(class="user-info-form")
-                span 用户id:#{user.id},
-                input(type="hidden",name="id",required="required",value=user.id)
+                span 用户id:#{user.getId()},
+                input(type="hidden",name="id",required="required",value=user.getId())
                 span 用户名:
                 input(type="text",name="name",required="required",value=user.name)
                 span ,年龄:
-                input(type="text",name="age",required="required",value=user.age)
+                input(type="number",name="age",required="required",value=user.age)
                 input(type="submit",value="保存")
 
 

@@ -15,16 +15,29 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-//orm
+function defineModels(db, models, next) {
+    models.user = db.define("user", {
+        id: Number,
+        name: String,
+        age: Number
+    }, {
+        methods: {
+            getId: function () {
+                return this.id || this._id;
+            }
+        }
+    });
+    next();
+}
+
+//mongodb orm
+// app.use(orm.express("mongodb://localhost/node", {
+//     define: defineModels
+// }));
+
+//mysql orm
 app.use(orm.express("mysql://root:@localhost/node", {
-    define: function (db, models, next) {
-        models.user = db.define("user", {
-            id: Number,
-            name: String,
-            age: Number
-        });
-        next();
-    }
+    define: defineModels
 }));
 
 // uncomment after placing your favicon in /public

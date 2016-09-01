@@ -34,6 +34,9 @@
                     break;
             }
         }).fail(function () {
+
+            console.log(arguments);
+
             message.html("无法连接服务器");
         });
     });

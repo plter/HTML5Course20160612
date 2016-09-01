@@ -5,6 +5,9 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     req.models.user.find({/*id: 1*/}, function (err, user) {
         if (!err) {
+
+            console.log(user);
+
             // res.send("OK");
             res.render('index', {title: 'Express', users: user});
         } else {
