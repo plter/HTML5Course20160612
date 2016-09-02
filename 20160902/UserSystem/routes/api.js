@@ -34,6 +34,8 @@ router.post("/login", function (req, res) {
             var user = rows[0];
 
             if (md5(req.body.password) == user.password) {
+                req.session.currentUser = user.login;
+                req.session.currentUserId = user.id;
                 res.json({state: 1, message: "Success"});
             } else {
                 res.json({state: 4, message: "Password wrong"});
