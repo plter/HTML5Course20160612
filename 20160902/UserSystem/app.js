@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -16,6 +17,11 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+const sessionStore = new MongoDBStore({
+    uri: "mongodb://localhost/user_system_session",
+    collection: "session"
+});
 
 //config orm
 app.use(orm.express("mysql://root:@localhost/us", {
@@ -39,7 +45,8 @@ app.use(cookieParser());
 app.use(session({
     secret: "123456",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: sessionStore
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
