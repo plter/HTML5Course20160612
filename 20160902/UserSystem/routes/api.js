@@ -13,7 +13,33 @@ router.post("/register", function (req, res) {
             res.json({state: 1, message: "Success"});
         } else {
             console.log(err);
-            res.json({state: 2, message: "Can not insert user"});
+
+            switch (err.errno) {
+                case 1062:
+                    res.json({state: err.errno, message: "Duplicate entry"});
+                    break;
+                default:
+                    res.json({state: 2, message: "Can not insert user"});
+                    break;
+            }
+
+        }
+    });
+});
+
+router.post("/login", function (req, res) {
+    req.models.user.find({login: req.body.login}, function (err, rows) {
+
+        if (rows.length) {
+            var user = rows[0];
+
+            if (md5(req.body.password) == user.password) {
+                res.json({state: 1, message: "Success"});
+            } else {
+                res.json({state: 4, message: "Password wrong"});
+            }
+        } else {
+            res.json({state: 3, message: "No such user"});
         }
     });
 });
