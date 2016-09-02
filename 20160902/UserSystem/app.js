@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const orm = require("orm");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+const orm = require("orm");
 
 var app = express();
 
@@ -15,30 +16,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-function defineModels(db, models, next) {
-    models.user = db.define("user", {
-        id: Number,
-        name: String,
-        age: Number
-    }, {
-        methods: {
-            getId: function () {
-                return this.id || this._id;
-            }
-        }
-    });
-    next();
-}
-
-//mongodb orm
-app.use(orm.express("mongodb://localhost/node", {
-    define: defineModels
+//config orm
+app.use(orm.express("mysql://root:@localhost/us", {
+    define: function (db, models, next) {
+        models.user = db.define("user", {
+            id: Number,
+            login: String,
+            password: String,
+            gender: Number
+        });
+        next();
+    }
 }));
-
-//mysql orm
-// app.use(orm.express("mysql://root:@localhost/node", {
-//     define: defineModels
-// }));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
