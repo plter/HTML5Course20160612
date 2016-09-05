@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频聊天</title>
+    <script src="socket.io.js"></script>
+</head>
+<body>
+<div>
+    <span>终端ID:</span><span id="my-id-span">正在获取ID</span>
+</div>
+<video autoplay="autoplay" controls="controls" width="320" height="240" id="local-video"></video>
+<video autoplay="autoplay" controls="controls" width="320" height="240" id="remote-video"></video>
+<div>
+    <span>目标ID:</span>
+    <input type="text" id="id-input" title="idinput">
+    <button id="btn-call">呼叫</button>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
