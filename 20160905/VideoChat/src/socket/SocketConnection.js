@@ -20,8 +20,6 @@ class SocketConnection {
         });
         this.socket.on("sendOffer", (data) => {
             let target = SocketConnection.__connections.get(data.targetId);
-            console.log(SocketConnection.__connections);
-            console.log(SocketConnection.__connections.size);
             if (target) {
                 target.socket.emit("receivedOffer", { targetId: this.id, offer: data.offer });
             }
